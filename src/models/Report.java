@@ -18,24 +18,23 @@ import javax.persistence.Table;
 @Table(name = "reports")
 @NamedQueries({
     @NamedQuery(
-            name = "getAllReports",
-            query = "SELECT r FROM Report AS r ORDER BY r.id DESC"
-            ),
+        name = "getAllReports",
+        query = "SELECT r FROM Report AS r ORDER BY r.id DESC"
+    ),
     @NamedQuery(
-            name = "getReportsCount",
-            query = "SELECT COUNT(r) FROM Report AS r"
-            ),
+        name = "getReportsCount",
+        query = "SELECT COUNT(r) FROM Report AS r"
+    ),
     @NamedQuery(
             name = "getMyAllReports",
             query = "SELECT r FROM Report AS r WHERE r.employee = :employee ORDER BY r.id DESC"
-            ),
-    @NamedQuery(
+        ),
+        @NamedQuery(
             name = "getMyReportsCount",
             query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee"
-            )
+        )
 })
 @Entity
-
 public class Report {
     @Id
     @Column(name = "id")
@@ -61,6 +60,9 @@ public class Report {
 
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
+
+    @Column(name = "like_count", nullable = false)
+    private Integer like_count;
 
     public Integer getId() {
         return id;
@@ -117,4 +119,13 @@ public class Report {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
+
+    public Integer getLike_count() {
+        return like_count;
+    }
+    public void setLike_count(Integer like_count) {
+        this.like_count = like_count;
+    }
+
+
 }

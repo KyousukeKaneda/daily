@@ -14,19 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 import models.Employee;
 import models.Report;
 import utils.DBUtil;
+
 /**
  * Servlet implementation class TopPageIndexServlet
  */
-@WebServlet(name = "index.html", urlPatterns = { "/index.html" })
+@WebServlet("/index.html")
 public class TopPageIndexServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+        private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
     public TopPageIndexServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -67,4 +67,5 @@ public class TopPageIndexServlet extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/topPage/index.jsp");
         rd.forward(request, response);
     }
+
 }

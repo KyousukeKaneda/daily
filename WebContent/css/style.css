@@ -121,11 +121,9 @@ table#report_list .report_date {
 }
 
 table#report_list .report_title {
-    width: 27%;
+    width: 37%;
 }
-tabel#report_list .report_nice {
-    width: 10%;
-}
+
 
 table#report_list .report_action {
     width: 13%;

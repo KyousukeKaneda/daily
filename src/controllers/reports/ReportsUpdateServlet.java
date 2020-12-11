@@ -56,7 +56,9 @@ public class ReportsUpdateServlet extends HttpServlet {
 
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/edit.jsp");
                 rd.forward(request, response);
-            } else {
+            }
+
+            else {
                 em.getTransaction().begin();
                 em.getTransaction().commit();
                 em.close();

@@ -17,10 +17,11 @@ import models.Employee;
 import models.Report;
 import models.validators.ReportValidator;
 import utils.DBUtil;
+
 /**
  * Servlet implementation class ReportsCreateServlet
  */
-@WebServlet(name = "reports/create", urlPatterns = { "/reports/create" })
+@WebServlet("/reports/create")
 public class ReportsCreateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -29,7 +30,6 @@ public class ReportsCreateServlet extends HttpServlet {
      */
     public ReportsCreateServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -54,6 +54,10 @@ public class ReportsCreateServlet extends HttpServlet {
             r.setTitle(request.getParameter("title"));
             r.setContent(request.getParameter("content"));
 
+            //String like_count = String.valueOf(request.getParameter("like_count"));
+            //response.getWriter().append("0").append(like_count);
+            r.setLike_count(new Integer(0));
+
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             r.setCreated_at(currentTime);
             r.setUpdated_at(currentTime);
@@ -75,7 +79,9 @@ public class ReportsCreateServlet extends HttpServlet {
                 em.close();
                 request.getSession().setAttribute("flush", "登録が完了しました。");
 
-                response.sendRedirect(request.getContextPath() + "/reports/index");
+                response.sendRedirect(request.getContextPath()+ "/reports/index");
+
+
             }
         }
     }

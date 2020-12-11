@@ -38,20 +38,21 @@
                         <tr>
                             <th>いいね数</th>
                             <td>
-
+                                <pre><c:out value="${report.like_count}" /></pre>
                             </td>
                         </tr>
+
                     </tbody>
                 </table>
 
-                <c:choose>
+            <c:choose>
                 <c:when test="${sessionScope.login_employee.id == report.employee.id}">
                     <p><a href="<c:url value="/reports/edit?id=${report.id}" />">この日報を編集する</a></p>
                 </c:when>
                 <c:otherwise>
-                    <p><a href="<c:url value="/reports/edit?id=${report.id}" />">この日報にいいねする</a></p>
+                    <p><a href="<c:url value="/reports/updatelike_count?id=${report.id}" />">この日報にいいねする</a></p>
                 </c:otherwise>
-                </c:choose>
+            </c:choose>
             </c:when>
 
 
